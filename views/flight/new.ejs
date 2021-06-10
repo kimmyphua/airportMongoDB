@@ -13,13 +13,13 @@
             <form action="/flight/create" method="post">
                 <div class="row">
                     <input class="form-control" placeholder="name of flight" name="name"/>
-                    <input class="form-control" placeholder="from of flight" name="from"/>
-                    <input class="form-control" placeholder="to" name="to"/>
+                    <input class="form-control" placeholder="departure" name="from"/>
+                    <input class="form-control" placeholder="arrival" name="to"/>
                     <input class="form-control" placeholder="airline" name="airline"/>
 
-                        <% passenger.forEach(u => {%>
+                        <p> Names of Passengers: <% passenger.forEach(u => {%>
                         <input type="checkbox" name="passenger" value="<%= u._id%>"><%= u.firstname %>  <%= u.lastname %>
-                    <% })%>
+                    <% })%></p>
                 </div>
                 <div class="row">
                     <button type="submit">Add Flight</button>

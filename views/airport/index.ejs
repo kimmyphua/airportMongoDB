@@ -6,7 +6,9 @@
                 <div class="card m-2">
                     <div class="card-body">
                         <p> <%= a.name %>,
-                            <%= a.country %></p>
+                            <%= a.country %>
+                            <%= a.opened %>
+                        </p>
                         <% a.terminal.forEach(u => {%>
                         <p> Terminal name: <%= u.name %></p>
                         <p>  Capacity: <%= u.capacity %></p>
@@ -29,7 +31,7 @@
                 </div>
                 <div class="row">
                     <label>opened</label>
-                    <input type="number" name="date">
+                    <input type="date" name="opened">
                 </div>
                 <div class="row">
                     <label>country</label>

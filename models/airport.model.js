@@ -9,7 +9,7 @@ const AirportSchema = new Schema ({
         type: Schema.Types.Array,
         ref: 'Terminal'
     },
-    opened: {type:Number}
+    opened: {type: Date}
 });
 
 
