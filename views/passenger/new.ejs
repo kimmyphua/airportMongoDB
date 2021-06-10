@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <% passenger.forEach(u => {%>
+
+                <h3 class="bg-warning"> <%= u.firstname %>
+                 <%= u.lastname %></h3>
+            <% }) %>
+
+        </div>
+        <div class="row">
+        <div class="col-6">
+        <form action="/passenger/create" method="post">
+
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name" name="firstname">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" name="lastname">
+            </div>
+            <div class="col">
+                <button type="submit">Add Passenger</button>
+            </div>
+
+
+        </form>
+            <div class="col">
+                <form action="/">
+                    <button class="btn btn-light btn-outline-danger mb-2" type="submit">Return Home</button>
+                </form>
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--        <div class="col-6">-->
+<!--           -->
+<!--                <div class="row">-->
+<!--                    <input class="form-control" placeholder="first name" name="firstname"/>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <input class="form-control" placeholder="last name" name="lastname"/>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <input class="form-control" placeholder="dateofbirth" name="dob"/>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <button type="submit">Add Passenger</button>-->
+<!--                </div>-->
+<!--            -->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

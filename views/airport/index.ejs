@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+        <% airport.forEach(a =>{ %>
+
+                <div class="card m-2">
+                    <div class="card-body">
+                        <p> <%= a.name %>,
+                            <%= a.country %></p>
+                        <% a.terminal.forEach(u => {%>
+                        <p> Terminal name: <%= u.name %></p>
+                        <p>  Capacity: <%= u.capacity %></p>
+                        Flights:
+                            <% u.flight.forEach(u => {%>
+                            <p><%= u.airline %> </p>
+                        <% })%>
+                        <% })%>
+
+                    </div>
+                </div>
+
+        <% }) %>
+        </div>
+        <div class="col-6">
+            <form action="/" method="post">
+                <div class="row">
+                    <label>Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="row">
+                    <label>opened</label>
+                    <input type="number" name="date">
+                </div>
+                <div class="row">
+                    <label>country</label>
+                    <input type="text" name="country">
+                </div>
+                <div class="row">
+                    <label>Terminals</label>
+                    <select name="terminal">
+                        <% terminal.forEach(u => {%>
+                            <option value="<%= u._id %>"><%= u.name %><%= u.airline %></option>
+                        <% })%>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <button class="btn border border-3" type="submit">Add Airport</button>
+                </div>
+            </form>
+            <div class="row py-3">
+                <div class="col">
+            <form action="/terminal/create">
+                <button class="btn btn-light btn-outline-danger mb-2" type="submit">Add New Terminal</button>
+            </form>
+                </div>
+                <div class="col">
+            <form action="/flight/create">
+                <button class="btn btn-light btn-outline-danger mb-2" type="submit">Add New Flight</button>
+            </form>
+                </div>
+                    <div class="col">
+            <form action="/passenger/create">
+                <button class="btn btn-light btn-outline-danger mb-2" type="submit">Add New Passenger</button>
+            </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

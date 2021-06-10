@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <% terminal.forEach(t =>{ %>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3>NAME: <%= t.name %></h3>
+                        <p>CAPACITY: <%= t.capacity %></p>
+                        <% t.flight.forEach(u => {%>
+                            <h5>AIRLINE: <%= u.airline %> </h5>
+                            List of Passengers:
+                            <% u.passenger.forEach(p => {%>
+                                <p><%= p.firstname %>, <%= p.lastname %></p>
+
+                        <% })%>
+                        <% })%>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+
+        <div class="col-6 bg-warning p-2">
+            <form action="/terminal/create" method="post">
+                <div class="row px-2">
+                    <input class="form-control"placeholder="name of terminal" name="name"/>
+                </div>
+                <div class="row px-2">
+                    <input class="form-control" placeholder="capacity" name="capacity"/>
+                </div>
+
+                <div class="row px-2">
+                    <h3>List of Flights</h3>
+                    <% flight.forEach(ut => {%>
+                        <input type="checkbox" name="flight" value="<%= ut._id%>"><%= ut.name %>
+                    <% })%>
+                </div>
+
+                <div class="row px-2">
+                    <button type="submit">Add Terminal</button>
+                </div>
+
+            </form>
+            <form action="/" class="mt-5">
+                <button class="btn btn-light btn-outline-danger mb-2" type="submit">Return Home</button>
+            </form>
+        </div>
+    </div>
+</div>
+
