@@ -4,20 +4,20 @@
         <% airport.forEach(a =>{ %>
 
                 <div class="card m-2">
-                    <div class="card-body">
-                        <p> <%= a.name %>,
-                            <%= a.country %>
-                            <%= a.opened %>
-                        </p>
+                    <div class="card-body border border-dark border-2 ">
+                        <h3> ♥ <%= a.name %>,
+                            <%= a.country %> </h3>
+
                         <% a.terminal.forEach(u => {%>
                         <p> Terminal name: <%= u.name %></p>
                         <p>  Capacity: <%= u.capacity %></p>
-                        Flights:
+                            <p>Flights:
                             <% u.flight.forEach(u => {%>
-                            <p><%= u.airline %> </p>
+                            <%= u.airline %>,
                         <% })%>
                         <% })%>
-
+                            </p>
+                        <%= a.opened %>
                     </div>
                 </div>
 
