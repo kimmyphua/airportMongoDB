@@ -9,6 +9,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
+                <% if (currentUser) { %>
                 <li class="nav-item">
                     <a class="nav-link" href="/terminal/create">Terminal</a>
                 </li>
@@ -18,6 +19,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/passenger/create" >Passengers</a>
                 </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/register">Register</a>
+                    </li>
+                <% } %>
             </ul>
         </div>
     </div>

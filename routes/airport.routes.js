@@ -2,8 +2,9 @@ const router = require('express').Router()
 const AirportModel = require('../models/airport.model')
 const FlightModel = require('../models/flight.model')
 const TerminalModel = require('../models/terminal.model')
+const checkUser= require("../lib/check")
 
-router.get('/', async (req, res) => {
+router.get('/', checkUser,async (req, res) => {
     try {
 
         let airport = await AirportModel.find()

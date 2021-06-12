@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const FlightModel = require('../models/flight.model')
 const PassengerModel = require('../models/passenger.model')
+const checkUser= require("../lib/check")
 
-router.get('/create', async (req, res) => {
+router.get('/create', checkUser, async (req, res) => {
     try {
         let passenger = await PassengerModel.find()
         let flight = await FlightModel.find().populate("passenger")

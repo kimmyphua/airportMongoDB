@@ -24,6 +24,9 @@
         <% }) %>
         </div>
         <div class="col-6">
+            <img class="ml-4" src="<%= currentUser.pic%>" />
+            <h5> Currently logged in as : <%= currentUser.firstname %> </h5>
+
             <form action="/" method="post">
                 <div class="row">
                     <label>Name</label>
