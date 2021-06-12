@@ -18,9 +18,8 @@ router.post('/create', async (req, res) => {
         let flight = new FlightModel(req.body)
         await flight.save()
         let passenger = new PassengerModel(req.body)
-        await passenger.save()
         await FlightModel.findByIdAndUpdate(req.body.flight, {$push: { passenger: passenger._id  }})
-
+        await PassengerModel.findByIdAndUpdate(req.body.passenger, {$push: { flight: flight._id  }})
         res.redirect("/flight/create")
     } catch (e) {
         console.log(e)
