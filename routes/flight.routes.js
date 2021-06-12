@@ -5,7 +5,7 @@ const PassengerModel = require('../models/passenger.model')
 router.get('/create', async (req, res) => {
     try {
         let passenger = await PassengerModel.find()
-        let flight = await FlightModel.find()
+        let flight = await FlightModel.find().populate("passenger")
         res.render("flight/new", {flight, passenger})
     } catch (e) {
         console.log(e)
@@ -16,11 +16,13 @@ router.post('/create', async (req, res) => {
     try {
         let flight = new FlightModel(req.body)
         await flight.save()
-        await PassengerModel.findByIdAndUpdate(req.body.passenger, {$push: { terminal: flight._id  }})
+        let passenger = new PassengerModel(req.body)
+        await passenger.save()
+        await FlightModel.findByIdAndUpdate(req.body.flight, {$push: { passenger: passenger._id  }})
 
         res.redirect("/flight/create")
     } catch (e) {
-
+        console.log(e)
     }
 })
 

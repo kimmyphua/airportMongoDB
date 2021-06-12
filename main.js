@@ -16,7 +16,7 @@ mongoose.connect(process.env.DB, {
 app.use(express.urlencoded({extended: true}))
 //static js, css, image, audio, video
 app.use(express.static('node_modules'))
-app.use(express.static('public'))
+app.use('/public', express.static('public'));
 
 app.set('view engine', 'ejs')
 app.use(expressLayouts)

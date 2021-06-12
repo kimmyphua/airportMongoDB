@@ -5,7 +5,11 @@ const {Schema} = require("mongoose");
 const PassengerSchema = new Schema ({
     firstname: {type:String, required:true},
     lastname: {type:String, required:true},
-    dob:  {type:Number},
+    dob:  {type:Date},
+    flight: {
+        type: Schema.Types.Array,
+        ref: 'Flight'
+    }
 
 });
 

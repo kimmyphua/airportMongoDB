@@ -1,16 +1,47 @@
 <div class="container">
     <div class="row">
-        <div class="col-3">
-            <% passenger.forEach(u => {%>
 
-                <h3 class="bg-warning"> <%= u.firstname %>
-                 <%= u.lastname %></h3>
-            <% }) %>
+            <table class="border border-2 border-dark table my-2">
+                <thead>
+                <tr class="">
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Flight</th>
+                </tr>
+                </thead>
 
-        </div>
+                <% passenger.forEach((u,i) => {%>
+
+                <tbody>
+                <tr>
+                    <th scope="row"><%= i+1%></th>
+                    <td><%= u.firstname %></td>
+                    <td><%= u.lastname %></td>
+                    <% u.flight.forEach((x) => {%>
+                    <td><%= x.name %></td><br />
+                    <% }) %>
+                </tr>
+
+                </tbody>
+                <% }) %>
+            </table>
+
+
+
         <div class="row">
         <div class="col-6">
         <form action="/passenger/create" method="post">
+            <p class="my-3"> Name of Flight:
+
+
+                    <select name="flight">
+                        <% flight.forEach(u => {%>
+                        <option value="<%= u._id%>"><%= u.name %></option>
+                <% })%>
+                    </select>
+
+            </p>
 
             <div class="col">
                 <input type="text" class="form-control" placeholder="First name" name="firstname">
@@ -19,16 +50,19 @@
                 <input type="text" class="form-control" placeholder="Last name" name="lastname">
             </div>
             <div class="col">
-                <button type="submit">Add Passenger</button>
+                <input type="date" class="form-control" placeholder="date of birth" name="dob">
+            </div>
+            <div class="col">
+                <button class="btn btn-light btn-outline-danger mb-2" type="submit">Add Passenger</button>
             </div>
 
 
         </form>
-            <div class="col">
-                <form action="/">
-                    <button class="btn btn-light btn-outline-danger mb-2" type="submit">Return Home</button>
-                </form>
-            </div>
+<!--            <div class="col">-->
+<!--                <form action="/">-->
+<!--                    <button class="btn btn-light btn-outline-danger mb-2" type="submit">Return Home</button>-->
+<!--                </form>-->
+<!--            </div>-->
         </div>
         </div>
 
